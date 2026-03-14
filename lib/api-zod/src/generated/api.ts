@@ -8,9 +8,113 @@
 import * as zod from "zod";
 
 /**
- * Returns server health status
  * @summary Health check
  */
 export const HealthCheckResponse = zod.object({
+  status: zod.string(),
+});
+
+/**
+ * @summary List approved reviews
+ */
+export const ListReviewsResponseItem = zod.object({
+  id: zod.number(),
+  name: zod.string(),
+  location: zod.string(),
+  vehicle: zod.string(),
+  text: zod.string(),
+  rating: zod.number(),
+  createdAt: zod.date(),
+});
+export const ListReviewsResponse = zod.array(ListReviewsResponseItem);
+
+/**
+ * @summary Submit a new review
+ */
+export const createReviewBodyRatingMax = 5;
+
+export const CreateReviewBody = zod.object({
+  name: zod.string(),
+  location: zod.string(),
+  vehicle: zod.string(),
+  text: zod.string(),
+  rating: zod.number().min(1).max(createReviewBodyRatingMax),
+});
+
+/**
+ * @summary List products
+ */
+export const ListProductsQueryParams = zod.object({
+  category: zod.enum(["auto", "moto", "llanta"]).optional(),
+  brand: zod.coerce.string().optional(),
+});
+
+export const ListProductsResponseItem = zod.object({
+  id: zod.number(),
+  name: zod.string(),
+  brand: zod.string(),
+  category: zod.enum(["auto", "moto", "llanta"]),
+  size: zod.string(),
+  price: zod.number().nullish(),
+  description: zod.string().nullish(),
+  imageUrl: zod.string().nullish(),
+  inStock: zod.boolean(),
+  createdAt: zod.date(),
+});
+export const ListProductsResponse = zod.array(ListProductsResponseItem);
+
+/**
+ * @summary Create product
+ */
+export const CreateProductBody = zod.object({
+  name: zod.string(),
+  brand: zod.string(),
+  category: zod.enum(["auto", "moto", "llanta"]),
+  size: zod.string(),
+  price: zod.number().nullish(),
+  description: zod.string().nullish(),
+  imageUrl: zod.string().nullish(),
+  inStock: zod.boolean(),
+});
+
+/**
+ * @summary Update product
+ */
+export const UpdateProductParams = zod.object({
+  id: zod.coerce.number(),
+});
+
+export const UpdateProductBody = zod.object({
+  name: zod.string(),
+  brand: zod.string(),
+  category: zod.enum(["auto", "moto", "llanta"]),
+  size: zod.string(),
+  price: zod.number().nullish(),
+  description: zod.string().nullish(),
+  imageUrl: zod.string().nullish(),
+  inStock: zod.boolean(),
+});
+
+export const UpdateProductResponse = zod.object({
+  id: zod.number(),
+  name: zod.string(),
+  brand: zod.string(),
+  category: zod.enum(["auto", "moto", "llanta"]),
+  size: zod.string(),
+  price: zod.number().nullish(),
+  description: zod.string().nullish(),
+  imageUrl: zod.string().nullish(),
+  inStock: zod.boolean(),
+  createdAt: zod.date(),
+});
+
+/**
+ * @summary Delete product
+ */
+export const DeleteProductParams = zod.object({
+  id: zod.coerce.number(),
+});
+
+export const DeleteProductResponse = zod.object({
   status: zod.string(),
 });

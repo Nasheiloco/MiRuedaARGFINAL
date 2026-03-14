@@ -8,3 +8,85 @@
 export interface HealthStatus {
   status: string;
 }
+
+export interface Review {
+  id: number;
+  name: string;
+  location: string;
+  vehicle: string;
+  text: string;
+  rating: number;
+  createdAt: string;
+}
+
+export interface CreateReviewInput {
+  name: string;
+  location: string;
+  vehicle: string;
+  text: string;
+  /**
+   * @minimum 1
+   * @maximum 5
+   */
+  rating: number;
+}
+
+export type ProductCategory =
+  (typeof ProductCategory)[keyof typeof ProductCategory];
+
+export const ProductCategory = {
+  auto: "auto",
+  moto: "moto",
+  llanta: "llanta",
+} as const;
+
+export interface Product {
+  id: number;
+  name: string;
+  brand: string;
+  category: ProductCategory;
+  size: string;
+  price?: number | null;
+  description?: string | null;
+  imageUrl?: string | null;
+  inStock: boolean;
+  createdAt: string;
+}
+
+export type ProductInputCategory =
+  (typeof ProductInputCategory)[keyof typeof ProductInputCategory];
+
+export const ProductInputCategory = {
+  auto: "auto",
+  moto: "moto",
+  llanta: "llanta",
+} as const;
+
+export interface ProductInput {
+  name: string;
+  brand: string;
+  category: ProductInputCategory;
+  size: string;
+  price?: number | null;
+  description?: string | null;
+  imageUrl?: string | null;
+  inStock: boolean;
+}
+
+export interface ErrorResponse {
+  error: string;
+}
+
+export type ListProductsParams = {
+  category?: ListProductsCategory;
+  brand?: string;
+};
+
+export type ListProductsCategory =
+  (typeof ListProductsCategory)[keyof typeof ListProductsCategory];
+
+export const ListProductsCategory = {
+  auto: "auto",
+  moto: "moto",
+  llanta: "llanta",
+} as const;

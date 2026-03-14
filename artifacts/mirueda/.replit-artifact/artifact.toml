@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Mi Rueda ARG"
+version = "1.0.0"
+id = "artifacts/mirueda"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+localPort = 25753
+name = "web"
+paths = ["/"]
+
+[services.development]
+run = "pnpm --filter @workspace/mirueda run dev"
+
+[services.env]
+PORT = "25753"
+BASE_PATH = "/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/mirueda", "run", "build"]
+publicDir = "artifacts/mirueda/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"

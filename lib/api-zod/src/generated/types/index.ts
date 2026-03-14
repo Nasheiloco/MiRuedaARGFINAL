@@ -6,4 +6,13 @@
  * OpenAPI spec version: 0.1.0
  */
 
+export * from "./createReviewInput";
+export * from "./errorResponse";
 export * from "./healthStatus";
+export * from "./listProductsCategory";
+export * from "./listProductsParams";
+export * from "./product";
+export * from "./productCategory";
+export * from "./productInput";
+export * from "./productInputCategory";
+export * from "./review";
