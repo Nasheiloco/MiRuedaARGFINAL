@@ -57,9 +57,9 @@ const Hero = () =>
       {/* Right image */}
       <div className="relative hidden lg:block">
         <img
-        src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=800"
-        className="w-full h-[520px] object-cover grayscale hover:grayscale-0 transition-all duration-700"
-        alt="Neumáticos de alta calidad"
+        src={`${import.meta.env.BASE_URL}hero-car.png`}
+        className="w-full h-[520px] object-cover hover:scale-105 transition-all duration-700"
+        alt="Auto en el local de Mi Rueda"
         loading="lazy" />
       
         <div className="absolute -bottom-6 -left-6 bg-foreground p-6 shadow-2xl">
