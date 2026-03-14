@@ -1,6 +1,6 @@
 const reasons = [
 { num: "01", title: "Precios competitivos", desc: "Trabajamos directo con fábricas para ofrecerte el mejor precio del mercado." },
-{ num: "02", title: "Stock permanente", desc: "Más de 50 modelos disponibles en ambas sucursales para entrega inmediata." },
+{ num: "02", title: "Stock permanente", desc: "Más de 500 modelos disponibles en ambas sucursales para entrega inmediata." },
 { num: "03", title: "Asesoramiento experto", desc: "Técnicos especializados que te guían para elegir la cubierta ideal." },
 { num: "04", title: "Garantía oficial", desc: "Todas las cubiertas con garantía de nuestra parte y respaldo de las mejores marcas." }];
 
