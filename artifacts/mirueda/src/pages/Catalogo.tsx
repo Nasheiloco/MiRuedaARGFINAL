@@ -296,29 +296,19 @@ export default function Catalogo() {
 
       {/* CONTENT */}
       <div className="container mx-auto py-10">
-        <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
-          <div>
-            <span className="text-sm font-bold tracking-widest uppercase text-[#d4740c]">
-              {adminToken ? "Modo Administrador" : "Stock disponible"}
-            </span>
-            <h1 className="font-display text-4xl md:text-5xl font-black uppercase italic text-foreground mt-1">
-              {activeCategory === "todos"
-                ? "Nuestro Catálogo"
-                : activeCategory === "auto"
-                ? "Cubiertas Auto"
-                : activeCategory === "moto"
-                ? "Cubiertas Moto"
-                : "Llantas y Aros"}
-            </h1>
-          </div>
-          {adminToken && (
-            <button
-              onClick={openNew}
-              className="bg-[#d4740c] text-white px-6 h-12 font-bold uppercase tracking-tight text-sm hover:brightness-110 transition-all"
-            >
-              + Nueva cubierta
-            </button>
-          )}
+        <div className="mb-8">
+          <span className="text-sm font-bold tracking-widest uppercase text-[#d4740c]">
+            {adminToken ? "Modo Administrador" : "Stock disponible"}
+          </span>
+          <h1 className="font-display text-4xl md:text-5xl font-black uppercase italic text-foreground mt-1">
+            {activeCategory === "todos"
+              ? "Nuestro Catálogo"
+              : activeCategory === "auto"
+              ? "Cubiertas Auto"
+              : activeCategory === "moto"
+              ? "Cubiertas Moto"
+              : "Llantas y Aros"}
+          </h1>
         </div>
 
         {/* FILTERS */}
