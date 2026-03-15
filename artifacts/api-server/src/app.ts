@@ -17,4 +17,12 @@ app.use("/uploads", express.static(uploadsDir));
 
 app.use("/api", router);
 
+if (process.env.NODE_ENV === "production") {
+  const clientDir = path.resolve(__dirname, "..", "client");
+  app.use(express.static(clientDir));
+  app.get("*", (_req, res) => {
+    res.sendFile(path.join(clientDir, "index.html"));
+  });
+}
+
 export default app;
