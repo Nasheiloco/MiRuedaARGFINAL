@@ -2,7 +2,6 @@ const items = [
   "🔥 Envíos a todo el país",
   "⚡ Cubiertas para auto y moto",
   "🏆 Mejores marcas garantizadas",
-  "💳 Hasta 3 cuotas sin interés",
   "🔧 Montaje y balanceo incluido",
   "📦 Stock permanente en 2 sucursales",
 ];
